@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<div id="div"></div>
+</body>
+<script>
+	  var element = document.getElementById('div');
+
+      var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+      var observer = new MutationObserver(myFunction);
+      observer.observe(element, {
+        childList: true
+      });
+
+      function myFunction() {
+        console.log(element);
+        console.log(element.innerHTML);
+      }
+
+      setTimeout(function() {
+        element.innerHTML = 'Hello World!';
+      }, 1000);
+
+      setTimeout(function() {
+        element.innerHTML = 'Hello Space!';
+      }, 2000);
+
+</script>
+</html>
